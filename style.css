@@ -1,0 +1,630 @@
+header {
+    background-color: rgb(227, 227, 252);
+    height: 80px;
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Center items vertically */
+    padding: 0 20px; /* Add padding for spacing */
+    gap: 10px; /* Add spacing between the image and text */
+}
+
+.img {
+    height: 70px; /* Adjust the image height */
+    width: auto; /* Maintain the aspect ratio */
+    
+}
+
+.H {
+    text-align: left; /* Align text to the left inside its container */
+    margin: 0; /* Remove default margins */
+    font-size: 30px; /* Adjust text size */
+}
+nav {
+    background-color: #444242;
+    color: white;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: left;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 12px;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+  
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+#note{
+    font-size: 14px;
+    font-weight: bold;
+}
+.back {
+    width: 100%; /* Stretch to fit the full width of the screen */
+    height: 450px; /* Maintain the aspect ratio as the width changes */
+    object-fit: cover; /* Ensures the image scales properly without distortion */
+    display: block; /* Ensures no inline gaps around the image */
+}
+p{
+  margin-top: 20px; /* Space between the image and the paragraph */
+    font-size: 18px; /* Slightly larger text for readability */
+    line-height: 1.6; /* Adjusts spacing between lines */
+    color: #555; /* Softer text color for a modern look */
+    max-width: 1900px; /* Limits the paragraph width */
+     /* Centers the paragraph horizontally */
+    text-align: justify;
+}
+/* Footer styling */
+
+.team {
+    display: flex; /* Arrange team members in a row */
+    justify-content: space-between; /* Add equal spacing between members */
+    align-items: flex-start; /* Align items to the top */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 10px; /* Reduce space between members */
+    margin: 20px auto; /* Center the entire team section */
+    padding: 20px; /* Add padding inside the container */
+    background-color: #f9f9f9; /* Light background */
+    width: 95%; /* Increase the width of the container */
+    border: 1px solid #ddd; /* Add a border */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center-align the content */
+    text-align: center; /* Center the text */
+    width: 23%; /* Increase the width of each member box */
+    padding: 15px; /* Add padding */
+    border: 1px solid #ddd; /* Add a border around each box */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #fff; /* White background for member box */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+.member-pic img {
+    width: 120px; /* Increase image width */
+    height: 120px; /* Increase image height */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Prevent distortion */
+    margin-bottom: 10px; /* Add space between image and text */
+}
+
+.member-info p {
+    margin: 5px 0; /* Add spacing between text items */
+    font-size: 14px; /* Set font size */
+    word-wrap: break-word; /* Prevent long text from overflowing */
+}
+
+#main {
+    display: flex; /* Enable Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    background-color: #f0f0f0; /* Light background */
+}
+
+#v {
+    background-color: #fff; /* White background for the div */
+    border: 0px solid #ddd; /* Subtle border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px; /* Inner spacing */
+    width: 55%; /* Width of the box */
+    height: 515px;
+    text-align: center; /* Center text inside the div */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a slight shadow for a polished look */
+    padding: 20px;
+}
+
+    .main-title {
+        font-size: 26px; /* A slightly larger font for emphasis */
+        font-weight: 600; /* Semi-bold for a clean appearance */
+        color: #444; /* Neutral dark gray for a professional look */
+        text-align: center; /* Center the text */
+        margin-bottom: 0px; /* Adequate spacing below */
+        margin-top: 30px; /* Space above the title */
+        text-transform: capitalize; /* Only capitalize the first letter of each word */
+        letter-spacing: 1px; /* Slightly spaced out for readability */
+       display: inline-block; /* Keeps the underline tight around the text */
+        padding-bottom: 5px; /* Add space between the text and underline */
+    }
+    
+
+.vb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+    padding: 20px;
+}
+
+#label {
+    display: block;
+    padding: 5px;
+    margin-top: 70px;
+    font-size: 16px; /* Set a readable font size */
+    font-weight: bold; /* Make the text bold for emphasis */
+    color: #333; /* Darker text color for contrast */
+    margin-bottom: 0px; /* Add spacing below the label */
+    display: block; /* Ensure the label is on its own line above the input */
+    text-transform: capitalize; /* Capitalize the first letter of each word */
+}
+
+.curve {
+    width: 500px; /* Width of the SVG */
+    height: 100px; /* Height of the SVG */
+    display: flex;
+    justify-content: center; /* Center the SVG */
+    align-items: center; /* Vertically align the SVG */
+    position: relative;
+}
+
+.curve svg {
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+}
+
+#air1 {
+    position: absolute; /* Ensure the element can be positioned */
+    height: 60px;
+    width: 60px;
+    top: -8px; /* Keeps it vertically positioned */
+    left: 280px; /* Moves it to the left */
+    transform: rotate(50deg);
+}
+
+#air2 {
+    position: absolute; /* Ensure the element can be positioned */
+    height: 110px;
+    width: 110px;
+    top: -60%; /* Keeps it vertically positioned */
+    left: 100px; /* Moves it to the left */
+     transform: rotate(20deg); 
+}
+#air3 {
+    position: absolute; /* Ensure the element can be positioned */
+    height: 110px;
+    width: 110px;
+    top: -20%; /* Keeps it vertically positioned */
+    left: -50px; /* Moves it to the left */
+    
+}
+
+h3 {
+    font-size: 20px; /* Make the text slightly larger */
+    font-weight: bold; /* Add emphasis with bold font */
+    color: #007bff; /* A nice blue color for visibility */
+    background-color: #f0f8ff; /* Light blue background for subtle emphasis */
+    border: 2px solid #007bff; /* Match the border color to the text */
+    border-radius: 10px; /* Rounded corners for a polished look */
+    padding: 10px 20px; /* Add spacing inside the box */
+    width: auto; /* Ensure it adjusts to the content size */
+    margin: 15px auto; /* Center horizontally with space around */
+    text-align: center; /* Center the text */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animations */
+}
+
+h3:hover {
+    transform: scale(1.1); /* Slight zoom-in effect on hover */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: flex-start; /* Align to the left */
+    width: 80%; /* Full width of the parent container */
+    margin-top: 20px; 
+    margin-left: 25px;
+    /* Add space above the button */
+}
+#b {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Add padding */
+    font-size: 14px; /* Adjust font size */
+    font-weight: bold; /* Make text bold */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add smooth hover effect */
+    margin-top: 30px; /* Add spacing from the text above */
+}
+
+#b:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+#b:active {
+    background-color: #004085; /* Even darker blue on click */
+    transform: scale(1); /* Reset scale on click */
+}
+.input {
+    width: 150px; /* Set the width of the input box */
+    padding: 10px; /* Add padding inside the input box */
+    margin-top: 5px; /* Add space between the label and the input */
+    font-size: 12px; /* Set a readable font size */
+    border: 1px solid #ccc;
+    text-align: center; /* Light border color */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for hover and focus effects */
+}
+
+.input:focus {
+    outline: none; /* Remove the default focus outline */
+    border: 1px solid #007bff; /* Highlight border on focus */
+    box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.3); /* Add a soft blue glow */
+    background-color: #f0f8ff; /* Slightly lighter background on focus */
+}
+
+.input::placeholder {
+    font-style: italic; /* Placeholder text in italics */
+    color: #aaa; /* Lighter text color for the placeholder */
+}
+#hour{
+    font-size: 20px; /* Make the text slightly larger */
+    font-weight: bold; /* Add emphasis with bold font */
+    color: #5c6064; /* A nice blue color for visibility */
+   /* Match the border color to the text */
+    /* Add spacing inside the box */
+    width: auto; /* Ensure it adjusts to the content size */
+    margin: 15px auto; /* Center horizontally with space around */
+    text-align: center; /* Center the text */
+    
+    
+}
+.image-contain {
+    position: relative; /* Enables positioning of child elements relative to this container */
+    margin-top: -100px; /* Moves the container to the top */
+    width: 100%; /* Full width */
+    max-height: 100px; /* Limit the height of the container */
+    max-width: 70px; /* Limit the width of the container */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+     /* Background color for visibility */
+}
+
+.image {
+    width: 100%; /* Image takes full width of the container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.centered-text {
+    position: absolute; /* Position text relative to the container */
+    top: 50%; /* Center text vertically within the container */
+    left: 50%;
+    width: 100%; /* Center text horizontally within the container */
+    transform: translate(-50%, -50%); /* Correct for element's own dimensions */
+    color: rgb(250, 184, 84); /* Text color for readability */
+    font-weight: bold;
+    font-size: 14px; /* Adjust text size */
+ 
+}
+/* Base styling for all links */
+a {
+    color: inherit; /* Use inherited color */
+    text-decoration: none; /* Remove underline by default */
+    font-size: 16px;
+    transition: all 0.3s ease; /* Smooth hover effects */
+}
+
+/* Hover effect: Slightly increase size */
+a:hover {
+    font-size: 18px; /* Grow on hover */
+    color:rgb(227, 227, 252); /* Change color on hover */
+}
+
+/* Active link styling */
+nav ul li a.active {
+    text-decoration: underline; /* Underline active link */
+    /* Bold font for emphasis */
+    color: rgb(227, 227, 252); /* Optional: Different color for active page */
+    font-size: 19px; /* Slightly larger text */
+}
+.footer {
+    background-color:  rgb(242, 242, 247);
+    padding: 20px 40px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 240px;
+    gap: 30px;
+  }
+  
+  .footer-links {
+    display: flex;
+    flex: 1;
+    gap: 30px;
+  }
+  
+  .footer-column h4 {
+    margin-bottom: 10px;
+    font-size: 1.3em; /* Slightly larger heading */
+    font-weight: bold; /* Bold for emphasis */
+    color: #333; /* Darker color for headings */
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-column a {
+    text-decoration: none; /* No underline for links */
+    font-size: 1em; /* Match font size */
+    font-weight: 500;
+     /* Medium weight for readability */
+    color: #000; /* Black color for links */
+    transition: color 0.3s ease;
+  }
+  
+  .footer-column a:hover {
+    text-decoration: underline; /* Change to blue on hover */
+  }
+  
+  .footer-subscribe {
+    flex: 1;
+    max-width: 550px;
+    max-height: 550px;
+    margin-right: 50px;
+  }
+  
+  .footer-subscribe h4 {
+    font-size: 2em; /* Emphasized subscribe heading */
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .footer-subscribe p {
+    margin-bottom: 18px;
+    color: #666;
+    font-size: 1.2em;
+  }
+  
+  .subscribe-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .subscribe-form input {
+    flex: 1;
+    padding: 10px 14px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .subscribe-form input:focus {
+    border-color: #000;
+  }
+  
+  .subscribe-form button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .subscribe-form button:hover {
+    background-color: #333;
+  }
+  
+  .footer-socials {
+    display: flex;
+    gap: 15px; /* Space between social media icons */
+    margin-top: 15px;
+  }
+  
+  .footer-socials a {
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  .social-logo {
+    width: 23px; /* Icon size */
+    height: 23px;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-logo:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+  }
+  
+  .footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  .footer-bottom a {
+    margin-left: 10px;
+    text-decoration: none; /* No underline */
+    color: #666;
+  }
+  
+  .footer-bottom a:hover {
+    color: #000;
+  }
+  .footer-bottom {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: flex-start; /* Align content to the left */
+    align-items: center; /* Vertically center the text */
+    gap: 15px; /* Space between items */
+    margin-top: 20px;
+    font-size: 0.9em; /* Adjust font size */
+    color: #666;
+  }
+  
+  .footer-bottom a {
+    text-decoration: none; /* No underline */
+    color: #666;
+  }
+  
+  .footer-bottom a:hover {
+    color: #000; /* Change color on hover */
+  }
+  /* Footer Mobile Styling */
+  @media (max-width: 768px) {
+    /* Footer Container */
+    .footer-container {
+      display: flex;
+      flex-direction: column; /* Stack footer sections */
+      gap: 20px;
+      padding: 20px; /* Add padding for spacing */
+      text-align: center; /* Center-align content */
+    }
+  
+    /* Footer Links */
+    .footer-links {
+      flex-direction: column; /* Stack links */
+      gap: 15px;
+      align-items: center;
+    }
+  
+    .footer-column {
+      margin-bottom: 15px; /* Add spacing between sections */
+    }
+  
+    .footer-column h4 {
+      font-size: 14px; /* Adjust heading size */
+      color: #333; /* Keep the same color scheme */
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  
+    .footer-column a {
+      font-size: 12px; /* Adjust link font size */
+      text-decoration: none;
+      color: black; /* Match your color scheme */
+    }
+  
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+  
+    /* Subscription Section */
+    .footer-subscribe {
+      width: 100%; /* Full width for subscription form */
+      text-align: center;
+    }
+  
+    .subscribe-form {
+      display: flex;
+      flex-direction: column; /* Stack input and button */
+      gap: 10px;
+    }
+  
+    .subscribe-form input {
+      width: 100%; /* Full width input */
+      padding: 10px;
+      font-size: 12px; /* Adjust font size */
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  
+    .subscribe-form button {
+      padding: 10px;
+      font-size: 12px;
+      background-color: #2c2d2b; /* Match your button color */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  
+    .subscribe-form button:hover {
+      background-color: #333; /* Slightly darker on hover */
+    }
+  
+    /* Social Media Icons */
+    .footer-socials {
+      display: flex;
+      justify-content: center; /* Center-align icons */
+      gap: 15px; /* Space between icons */
+    }
+  
+    .social-logo {
+      width: 20px; /* Smaller icon size */
+      height: 20px;
+      transition: transform 0.3s ease; /* Smooth hover effect */
+    }
+  
+    .social-logo:hover {
+      transform: scale(1.1); /* Slightly enlarge on hover */
+    }
+  
+    /* Footer Bottom */
+    .footer-bottom {
+      display: flex;
+      flex-direction: column; /* Stack footer-bottom items */
+      gap: 10px;
+      text-align: center; /* Center-align text */
+      font-size: 11px; /* Adjust font size */
+      color: #666; /* Match the existing color */
+    }
+  
+    .footer-bottom a {
+      text-decoration: none;
+      color: #333;
+    }
+  
+    .footer-bottom a:hover {
+      color: #000; /* Slightly darker on hover */
+    }
+  }
+  

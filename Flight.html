@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Ticket API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <img src="image/pic.png" class="img" alt="Flight Logo">
+    <h1 class="H">FLIGHT MANAGEMENT</h1>
+</header>
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="ticket-info.html">Ticket</a></li>
+        <li><a href="Departure.html">Departures</a></li>
+        <li><a href="Flight.html">Flight Duration</a></li>
+        
+    </ul>
+</nav>
+<main id="main">
+   
+    <div id="v">
+        <h2 class="main-title">Calculate Flight Time</h2> 
+        <div class="vb" >
+        <div>
+            <label for="fromLocation" id="label">From location</label>
+            <input type="text" id="fromLocation" placeholder="Enter origin location code" class="input">
+        </div>
+        
+        <div class="curve">
+            <img src="image\air.png" id="air1">
+            <img src="image\air2.png" id="air2">
+            <img src="image\air3.png" id="air3">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 150" preserveAspectRatio="none">
+                <!-- Define arrow marker -->
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="strokeWidth">
+                        <path d="M 0 0 L 10 5 L 0 10 Z" fill="black" />
+                    </marker>
+                </defs>
+                <!-- Curved path with arrow marker -->
+                <path d="M 0 100 Q 200 -50 400 100" 
+                      stroke="black" 
+                      fill="transparent" 
+                      stroke-width="2" 
+                      stroke-dasharray="5, 5" 
+                      marker-end="url(#arrow)" />
+            </svg>
+        </div>
+      
+
+        <div>
+            <label for="toLocation" id="label">To Location</label>
+            <input type="text" id="toLocation" placeholder="Enter destination location code " class="input">
+        </div>
+        
+    </div>
+    <div class="image-contain">
+        <img src="image/time.png" alt="Background Image" class="image">
+        <div class="centered-text" id="text"></div>
+    </div>
+    
+    <div class="button-container" id="before" >
+        <button id="b" onclick="findFlightDuration()">Get Duration</button>
+    </div>
+    </div>
+</main>
+            
+   
+<script>
+  // Define the output variable globally so it can be reused
+let output;
+
+async function findFlightDuration() {
+    const fromLocation = document.getElementById('fromLocation').value;
+    const toLocation = document.getElementById('toLocation').value;
+
+    // Ensure output element is created only once
+    if (!output) {
+        output = document.createElement("h3");
+        const parent = document.getElementById("v");
+        const before = document.getElementById("before");
+
+        // Insert the output element after the 'before' element
+        if (before.nextSibling) {
+            parent.insertBefore(output, before.nextSibling);
+        } else {
+            parent.appendChild(output);
+        }
+    }
+
+    // Clear previous results
+    output.textContent = "";
+    document.getElementById("text").textContent = "";
+
+    // Validate input
+    if (!fromLocation || !toLocation) {
+        output.textContent = 'Please provide both origin and destination locations.';
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:3000/flight-duration?from=${fromLocation}&to=${toLocation}`);
+        const data = await response.json();
+
+        if (response.ok) {
+            output.textContent = `Flight Duration: ${data.duration} hours.`;
+            document.getElementById("text").textContent = `${data.duration} hours`;
+        } else {
+            output.textContent = data.error || 'Could not fetch flight duration.';
+        }
+    } catch (error) {
+        output.textContent = 'An error occurred while fetching flight duration.';
+        console.error('Error:', error);
+    }
+}
+document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll("nav a"); // Select all links in the nav
+    const currentPath = window.location.pathname.split("/").pop(); // Get the current page's file name
+
+    links.forEach(link => {
+        // Match the link's href with the current page's file name
+        if (link.getAttribute("href") === currentPath) {
+            link.classList.add("active");
+        }
+    });
+});
+
+   
+</script>
+</body>

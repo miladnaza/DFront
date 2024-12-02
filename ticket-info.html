@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Ticket API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <img src="image/pic.png" class="img" alt="Flight Logo">
+    <h1 class="H">FLIGHT MANAGEMENT</h1>
+</header>
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="ticket-info.html">Ticket</a></li>
+        <li><a href="Departure.html">Departures</a></li>
+        <li><a href="Flight.html">Flight Duration</a></li>
+    </ul>
+</nav>
+<main>
+    <h1>Test Ticket API</h1>
+    <label for="ticketNumber">Enter Passenger Number:</label>
+    <input type="text" id="ticketNumber" value="101" />
+    <button onclick="fetchTicketDetails()">Get Ticket Details</button>
+    <p id="note"></p>
+    <!-- Table placeholder -->
+    <table id="ticketDetailsTable" border="1" style="margin-top: 20px; width: 100%; border-collapse: collapse; display: none;">
+        <thead>
+            <tr>
+                <th>Passenger Number</th>
+                <th>Flight Number</th>
+                <th>Seating Class</th>
+                <th>Departure Date</th>
+                <th>Departure Time</th>
+                <th>Arrival Date</th>
+                <th>Arrival Time</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Airplane</th>
+                <th>Airline</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</main>
+
+
+<script>
+    async function fetchTicketDetails() {
+        const ticketNumber = document.getElementById('ticketNumber').value;
+        const table = document.getElementById('ticketDetailsTable');
+        const tbody = table.querySelector('tbody');
+
+        // Clear previous table content
+        tbody.innerHTML = '';
+        table.style.display = 'none';
+
+        try {
+            document.getElementById("note").innerHTML="";
+            const response = await fetch(`http://localhost:3000/ticket/${ticketNumber}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+
+            if (data.length === 0) {
+                document.getElementById("note").innerHTML='No details found for the provided ticket number.';
+                return;
+            }
+
+            // Populate the table with data
+            data.forEach(ticket => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${ticket.PASSENGER_ID}</td>
+                    <td>${ticket.FLIGHT_ID}</td>
+                    <td>${ticket.SEATING_CLASS}</td>
+                    <td>${new Date(ticket.DEPARTURE_DATE).toISOString().split('T')[0]}</td>
+                    <td>${new Date(ticket.DEPARTURE_DATE).toTimeString().split(' ')[0]}</td>
+                    <td>${new Date(ticket.ARRIVAL_DATE).toISOString().split('T')[0]}</td>
+                    <td>${new Date(ticket.ARRIVAL_DATE).toTimeString().split(' ')[0]}</td>
+                    <td>${ticket.ORIGIN_AIRPORT} (${ticket.ORIGIN_CODE})</td>
+                    <td>${ticket.DESTINATION_AIRPORT} (${ticket.DESTINATION_CODE})</td>
+                    <td>${ticket.AIRPLANE}</td>
+                    <td>${ticket.AIRLINE}</td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            // Show the table
+            table.style.display = 'table';
+        } catch (error) {
+            document.getElementById("note").innerHTML='No details found for the provided ticket number.';
+        }
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll("nav a"); // Select all links in the nav
+    const currentPath = window.location.pathname.split("/").pop(); // Get the current page's file name
+
+    links.forEach(link => {
+        // Match the link's href with the current page's file name
+        if (link.getAttribute("href") === currentPath) {
+            link.classList.add("active");
+        }
+    });
+});
+
+</script>
+</body>
+</html>

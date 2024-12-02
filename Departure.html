@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Ticket API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <img src="image/pic.png" class="img" alt="Flight Logo">
+    <h1 class="H">FLIGHT MANAGEMENT</h1>
+</header>
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="ticket-info.html">Ticket</a></li>
+        <li><a href="Departure.html">Departures</a></li>
+        <li><a href="Flight.html">Flight Duration</a></li>
+    </ul>
+</nav>
+<main>
+    <p id="note" style="color: red; text-align: center;"></p> <!-- Add this line -->
+    <table id="departures" border="1" style="margin-top: 20px; width: 100%; border-collapse: collapse; display: none;">
+        <thead>
+            <tr>
+                <th>Flight No</th>
+                <th>Destination</th>
+                <th>Airline</th>
+                <th>Departure Date</th>
+                <th>Departure Time</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</main>
+
+<footer>
+    
+</footer>
+<script>
+    async function fetchTicketDetails() {
+        const table = document.getElementById('departures');
+        const tbody = table.querySelector('tbody');
+        const note = document.getElementById("note");
+
+        // Clear previous table content
+        tbody.innerHTML = '';
+        table.style.display = 'none';
+        note.textContent = ''; // Clear any previous messages
+
+        try {
+            const response = await fetch(`http://localhost:3000/departures`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+
+            if (data.length === 0) {
+                note.textContent = 'No departure details found.';
+                return;
+            }
+
+            // Populate the table with data
+            data.forEach(ticket => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${ticket.FLIGHT_ID}</td>
+                    <td>${ticket.DESTINATION}</td>
+                    <td>${ticket.AIRLINE}</td>
+                    <td>${new Date(ticket.DEPARTURE_DATE).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</td>
+                    <td>${ticket.DEPARTURE_TIME}</td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            // Show the table
+            table.style.display = 'table';
+        } catch (error) {
+            console.error('Error fetching departures:', error);
+            note.textContent = 'Unable to fetch departures. Please try again later.';
+        }
+    }
+
+    // Call the function on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        fetchTicketDetails();
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll("nav a"); // Select all links in the nav
+    const currentPath = window.location.pathname.split("/").pop(); // Get the current page's file name
+
+    links.forEach(link => {
+        // Match the link's href with the current page's file name
+        if (link.getAttribute("href") === currentPath) {
+            link.classList.add("active");
+        }
+    });
+});
+
+</script>
+
+</body>
+</html>
