@@ -1,5 +1,6 @@
 const apiUrl = 'https://dnode.onrender.com';
 
+
 // Function to fetch and display ticket details
 async function fetchTicketDetails() {
     const ticketNumber = document.getElementById('ticketNumber').value.trim();

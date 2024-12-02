@@ -48,6 +48,7 @@
 
 
 <script>
+    const apiUrl = 'https://dnode.onrender.com';
     async function fetchTicketDetails() {
         const ticketNumber = document.getElementById('ticketNumber').value;
         const table = document.getElementById('ticketDetailsTable');
@@ -59,7 +60,7 @@
 
         try {
             document.getElementById("note").innerHTML="";
-            const response = await fetch(`http://localhost:3000/ticket/${ticketNumber}`);
+            const response = await fetch(`${apiUrl}/ticket/${ticketNumber}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }

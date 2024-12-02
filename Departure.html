@@ -39,6 +39,7 @@
     
 </footer>
 <script>
+    const apiUrl = 'https://dnode.onrender.com';
     async function fetchTicketDetails() {
         const table = document.getElementById('departures');
         const tbody = table.querySelector('tbody');
@@ -50,7 +51,9 @@
         note.textContent = ''; // Clear any previous messages
 
         try {
-            const response = await fetch(`http://localhost:3000/departures`);
+            const response = await fetch(`${apiUrl}/departures`);
+            console.log(`${apiUrl}/departures`);
+            
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }

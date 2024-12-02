@@ -71,6 +71,7 @@
             
    
 <script>
+    const apiUrl = 'https://dnode.onrender.com';
   // Define the output variable globally so it can be reused
 let output;
 
@@ -103,7 +104,7 @@ async function findFlightDuration() {
     }
 
     try {
-        const response = await fetch(`http://localhost:3000/flight-duration?from=${fromLocation}&to=${toLocation}`);
+        const response = await fetch(`${apiUrl}/flight-duration?from=${fromLocation}&to=${toLocation}`);
         const data = await response.json();
 
         if (response.ok) {
