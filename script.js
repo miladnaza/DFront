@@ -1,4 +1,4 @@
-const apiUrl = process.env.REACT_APP_API_URL;
+const apiUrl = 'https://dnode.onrender.com';
 
 // Function to fetch and display ticket details
 async function fetchTicketDetails() {
